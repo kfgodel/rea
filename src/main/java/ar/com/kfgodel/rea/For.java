@@ -11,7 +11,7 @@ public class For implements Runnable {
     private Runnable initialization;
     private Supplier<Boolean> condition;
     private Runnable incrementer;
-    private Runnable body;
+    private Supplier<Flow> body;
 
     @Override
     public void run() {
@@ -26,7 +26,7 @@ public class For implements Runnable {
      * @param body The for body code
      * @return The created For instance
      */
-    public static For create(Runnable initialization, Supplier<Boolean> condition,  Runnable incrementer, Runnable body) {
+    public static For create(Runnable initialization, Supplier<Boolean> condition,  Runnable incrementer, Supplier<Flow> body) {
         For aFor = new For();
         aFor.body = body;
         aFor.condition = condition;
@@ -59,11 +59,11 @@ public class For implements Runnable {
         this.incrementer = incrementer;
     }
 
-    public Runnable getBody() {
+    public Supplier<Flow> getBody() {
         return body;
     }
 
-    public void setBody(Runnable body) {
+    public void setBody(Supplier<Flow> body) {
         this.body = body;
     }
 }

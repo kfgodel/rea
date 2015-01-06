@@ -43,13 +43,13 @@ protected
 
 Flow
 ====
-for
+for --R
 while
 do
-break
-continue
-if
-else
+break --R
+continue --R
+if  --R
+else    --R
 throw
 return
 try
@@ -89,3 +89,4 @@ instanceof
 ** 	  	added in 1.2
 *** 	  	added in 1.4
 **** 	  	added in 5.0
+R           Reified

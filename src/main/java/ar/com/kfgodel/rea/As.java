@@ -26,8 +26,9 @@ public class As {
      * This method represents the no operation reification. A method that has no effect but can be used
      * as argument in other constructs
      */
-    public static void noOp() {
+    public static Flow noOp() {
         // We do nothing!
+        return Flow.CONTINUE;
     }
 
     /**
@@ -51,12 +52,24 @@ public class As {
      * Functional version of FOR keyword that has all the parts as arguments
      * @param initialization The code to execute at the beginning
      * @param condition The condition to evaluate before each loop
-     * @param incrementor The code to execute after each loop
-     * @param body The code to execute in each loop
+     * @param incrementer The code to execute after each loop
+     * @param body The code to execute in each loop (return BREAK to break the loop)
      */
-    public static void functionFor(Runnable initialization, Supplier<Boolean> condition, Runnable incrementor, Runnable body) {
-        for(initialization.run();condition.get();incrementor.run()){
-            body.run();
+    public static void functionFor(Runnable initialization, Supplier<Boolean> condition, Runnable incrementer, Supplier<Flow> body) {
+        for(initialization.run();condition.get();incrementer.run()){
+            Flow flow = body.get();
+            if(Flow.BREAK.equals(flow)){
+                break;
+            }
         }
+    }
+
+    /**
+     * Wraps a runnable code into a supplier so it usable as a loop body. A runnable code isn't able to break the loop
+     * @param code The code to wrap
+     * @return The supplier form of the runnable as always returning Flow.CONTINUE;
+     */
+    public static Supplier<Flow> loopBody(Runnable code) {
+        return ()-> { code.run(); return Flow.CONTINUE;};
     }
 }
