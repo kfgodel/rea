@@ -1,0 +1,91 @@
+Taken from: http://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords.html
+
+
+Here is a list of keywords in the Java programming language. You cannot use any of the following as identifiers in your programs. The keywords const and goto are reserved, even though they are not currently used. true, false, and null might seem like keywords, but they are actually literals; you cannot use them as identifiers in your programs.
+
+Unused
+======
+goto*
+const*
+
+primitive types
+===============
+boolean
+double
+byte
+int
+short
+char
+void
+long
+float
+
+Modifiers
+=========
+abstract
+synchronized
+transient
+final
+static
+volatile
+native
+default
+strictfp**
+throws
+
+
+Visibility
+==========
+public
+private
+protected
+
+
+Flow
+====
+for
+while
+do
+break
+continue
+if
+else
+throw
+return
+try
+catch
+finally
+switch
+case
+default
+
+
+Type definition
+===============
+package
+import
+extends
+implements
+enum****
+interface
+class
+
+
+Object references
+================
+new
+this
+super
+
+Conditions
+==========
+assert***
+instanceof
+
+
+
+
+* 	  	not used
+** 	  	added in 1.2
+*** 	  	added in 1.4
+**** 	  	added in 5.0
