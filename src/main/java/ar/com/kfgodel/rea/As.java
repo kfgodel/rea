@@ -46,4 +46,17 @@ public class As {
     public static boolean functionFalse(){
         return false;
     }
+
+    /**
+     * Functional version of FOR keyword that has all the parts as arguments
+     * @param initialization The code to execute at the beginning
+     * @param condition The condition to evaluate before each loop
+     * @param incrementor The code to execute after each loop
+     * @param body The code to execute in each loop
+     */
+    public static void functionFor(Runnable initialization, Supplier<Boolean> condition, Runnable incrementor, Runnable body) {
+        for(initialization.run();condition.get();incrementor.run()){
+            body.run();
+        }
+    }
 }
