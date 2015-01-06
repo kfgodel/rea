@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
  * Created by kfgodel on 06/01/15.
  */
 @RunWith(JavaSpecRunner.class)
-public class LoopingTest extends JavaSpec<ReaTestContext> {
+public class ForTest extends JavaSpec<ReaTestContext> {
     @Override
     public void define() {
         describe("for", () -> {

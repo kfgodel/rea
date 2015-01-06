@@ -3,10 +3,10 @@ package ar.com.kfgodel.rea;
 import java.util.function.Supplier;
 
 /**
- * This type represents a dynamic for construct
+ * This type represents a dynamic FOR construct
  * Created by kfgodel on 06/01/15.
  */
-public class For implements Runnable {
+public class For implements Runnable, DynamicLoop {
 
     private Runnable initialization;
     private Supplier<Boolean> condition;

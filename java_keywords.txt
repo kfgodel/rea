@@ -44,7 +44,7 @@ protected
 Flow
 ====
 for --R
-while
+while   --R
 do
 break --R
 continue --R

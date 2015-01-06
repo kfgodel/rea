@@ -72,4 +72,19 @@ public class As {
     public static Supplier<Flow> loopBody(Runnable code) {
         return ()-> { code.run(); return Flow.CONTINUE;};
     }
+
+
+    /**
+     * Functional version of WHILE keyword that has all the parts as arguments
+     * @param condition The condition to evaluate before the body execution
+     * @param body The code to execute in the body of the loop
+     */
+    public static void functionWhile(Supplier<Boolean> condition, Supplier<Flow> body) {
+        while(condition.get()){
+            Flow flow = body.get();
+            if(Flow.BREAK.equals(flow)){
+                break;
+            }
+        }
+    }
 }

@@ -13,6 +13,9 @@ public interface ReaTestContext extends TestContext {
     void aFor(Supplier<For> definition);
     For aFor();
 
+    void aWhile(Supplier<While> definition);
+    While aWhile();
+
     Variable<Integer> index();
     void index(Supplier<Variable<Integer>> definition);
 

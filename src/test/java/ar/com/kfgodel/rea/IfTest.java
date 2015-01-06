@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by kfgodel on 31/12/14.
  */
 @RunWith(JavaSpecRunner.class)
-public class ConditionalTest extends JavaSpec<TestContext> {
+public class IfTest extends JavaSpec<TestContext> {
     @Override
     public void define() {
         describe("if", () -> {
