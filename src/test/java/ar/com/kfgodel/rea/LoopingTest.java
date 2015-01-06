@@ -2,11 +2,11 @@ package ar.com.kfgodel.rea;
 
 import ar.com.dgarcia.javaspec.api.JavaSpec;
 import ar.com.dgarcia.javaspec.api.JavaSpecRunner;
-import ar.com.dgarcia.javaspec.api.TestContext;
 import ar.com.dgarcia.javaspec.api.Variable;
 import org.junit.runner.RunWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
 
 /**
  * This type verifies the behavior of the looping constructs
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Created by kfgodel on 06/01/15.
  */
 @RunWith(JavaSpecRunner.class)
-public class LoopingTest extends JavaSpec<TestContext> {
+public class LoopingTest extends JavaSpec<ReaTestContext> {
     @Override
     public void define() {
         describe("for", () -> {
@@ -63,6 +63,68 @@ public class LoopingTest extends JavaSpec<TestContext> {
 
 
             });
+
+            describe("as an object", () -> {
+
+                context().index(Variable::create);
+
+                it("can be executed as a runnable",()->{
+                    For aFor = For.create(
+                            () -> context().index().set(0),
+                            () -> context().index().get() < 10,
+                            () -> context().index().storeSumWith(1),
+                            As::noOp);
+
+                    aFor.run();
+
+                    assertThat(context().index().get()).isEqualTo(10);
+                });
+
+                describe("with state", () -> {
+
+                    context().aFor(()-> For.create(
+                                ()-> context().index().set(0),
+                                ()->  context().index().get() < 1 ,
+                                ()-> context().index().storeSumWith(1),
+                                As::noOp)
+                    );
+
+                    it("can change the initialization code", () -> {
+                        context().aFor().setInitialization(()-> context().index().set(2));
+
+                        context().aFor().run();
+
+                        assertThat(context().index().get()).isEqualTo(2);
+                    });
+
+                    it("can change the condition",()->{
+                        context().aFor().setCondition(() -> context().index().get() < 8);
+
+                        context().aFor().run();
+
+                        assertThat(context().index().get()).isEqualTo(8);
+                    });
+
+                    it("can change the incrementer",()->{
+                        context().aFor().setIncrementer(() -> context().index().storeSumWith(3));
+
+                        context().aFor().run();
+
+                        assertThat(context().index().get()).isEqualTo(3);
+                    });
+
+                    it("can change the body",()->{
+                        Runnable mockedBody = mock(Runnable.class);
+                        context().aFor().setBody(mockedBody);
+
+                        context().aFor().run();
+
+                        verify(mockedBody,times(1)).run();
+                    });
+                });
+
+            });
+
 
         });
 
