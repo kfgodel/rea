@@ -1,7 +1,8 @@
 package ar.com.kfgodel.rea;
 
-import ar.com.dgarcia.javaspec.api.TestContext;
-import ar.com.dgarcia.javaspec.api.Variable;
+import ar.com.dgarcia.javaspec.api.contexts.TestContext;
+import ar.com.dgarcia.javaspec.api.variable.Variable;
+import ar.com.kfgodel.rea.api.NameBinding;
 
 import java.util.function.Supplier;
 
@@ -21,5 +22,8 @@ public interface ReaTestContext extends TestContext {
 
     <T> Variable<T> variable();
     <T> void variable(Supplier<Variable<T>> definition);
+
+    NameBinding nameBinding();
+    void nameBinding(Supplier<NameBinding> definition);
 
 }

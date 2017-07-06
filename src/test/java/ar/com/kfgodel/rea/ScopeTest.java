@@ -2,8 +2,8 @@ package ar.com.kfgodel.rea;
 
 import ar.com.dgarcia.javaspec.api.JavaSpec;
 import ar.com.dgarcia.javaspec.api.JavaSpecRunner;
-import ar.com.dgarcia.javaspec.api.TestContext;
-import ar.com.kfgodel.rea.api.ReaException;
+import ar.com.dgarcia.javaspec.api.contexts.TestContext;
+import ar.com.kfgodel.rea.api.exceptions.ReaException;
 import ar.com.kfgodel.rea.impl.ScopeImpl;
 import org.junit.runner.RunWith;
 

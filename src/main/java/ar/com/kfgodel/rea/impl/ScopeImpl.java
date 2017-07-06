@@ -1,6 +1,6 @@
 package ar.com.kfgodel.rea.impl;
 
-import ar.com.kfgodel.rea.api.ReaException;
+import ar.com.kfgodel.rea.api.exceptions.ReaException;
 import ar.com.kfgodel.rea.api.StatementScope;
 import ar.com.kfgodel.rea.api.Variable;
 

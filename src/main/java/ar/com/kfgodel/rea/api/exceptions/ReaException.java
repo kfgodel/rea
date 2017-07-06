@@ -1,4 +1,4 @@
-package ar.com.kfgodel.rea.api;
+package ar.com.kfgodel.rea.api.exceptions;
 
 /**
  * Created by tenpines on 06/10/15.

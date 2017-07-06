@@ -2,7 +2,7 @@ package ar.com.kfgodel.rea;
 
 import ar.com.dgarcia.javaspec.api.JavaSpec;
 import ar.com.dgarcia.javaspec.api.JavaSpecRunner;
-import ar.com.dgarcia.javaspec.api.Variable;
+import ar.com.dgarcia.javaspec.api.variable.Variable;
 import org.junit.runner.RunWith;
 
 import java.util.function.Supplier;
