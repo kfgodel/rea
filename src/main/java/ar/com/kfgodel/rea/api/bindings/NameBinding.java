@@ -21,4 +21,11 @@ public interface NameBinding {
    * @return The value of the
    */
   Object getValueFor(String name);
+
+  /**
+   * Answers if this binding has a value bound to the given name
+   * @param name The name to check
+   * @return true if a value was previously bound to the name, false otherwise
+   */
+  boolean hasValueFor(String name);
 }

@@ -19,22 +19,27 @@ public class NameBindingTest extends JavaSpec<ReaTestContext> {
     describe("a name binding", () -> {
       context().nameBinding(NameBindingsImpl::create);
 
-      it("returns the value given for a bound name",()->{
+      it("returns the value given for a bound name", () -> {
         context().nameBinding().bindTo("aName", 2);
         assertThat(context().nameBinding().getValueFor("aName")).isEqualTo(2);
       });
 
-      itThrows(CannotFindSymbolException.class, "if an unbound name is accessed", ()->{
+      itThrows(CannotFindSymbolException.class, "if an unbound name is accessed", () -> {
         context().nameBinding().getValueFor("aName");
-      }, e->{
+      }, e -> {
         assertThat(e).hasMessage("The name[aName] is unbound");
       });
 
-      it("allows binding null to a name",()->{
+      it("allows binding null to a name", () -> {
         context().nameBinding().bindTo("aName", null);
         assertThat(context().nameBinding().getValueFor("aName")).isNull();
       });
 
+      it("allows knowing if a name was bound", () -> {
+        assertThat(context().nameBinding().hasValueFor("aName")).isFalse();
+        context().nameBinding().bindTo("name", "algo");
+        assertThat(context().nameBinding().hasValueFor("aName")).isTrue();
+      });
     });
 
   }
