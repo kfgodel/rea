@@ -18,7 +18,7 @@ public class ReturnStatementTest extends JavaSpec<ReaTestContext> {
   @Override
   public void define() {
     describe("a return statement", () -> {
-      context().returnStm(()-> ReturnStatementImpl.create(()-> 2));
+      context().returnStm(()-> ReturnStatementImpl.create((stmContext)-> 2));
 
       it("assigns a value to the special variable 'return'",()->{
         StatementContextImpl context = StatementContextImpl.create();

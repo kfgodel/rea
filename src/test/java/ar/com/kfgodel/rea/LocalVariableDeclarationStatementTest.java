@@ -18,7 +18,7 @@ public class LocalVariableDeclarationStatementTest extends JavaSpec<ReaTestConte
   @Override
   public void define() {
     describe("a local variable declaration", () -> {
-      context().localDeclaration(()-> LocalVariableDeclarationImpl.create("name1", ()-> "value1"));
+      context().localDeclaration(()-> LocalVariableDeclarationImpl.create("name1", (stmContext)-> "value1"));
 
       it("binds the given name to a variable with the given initial value when executed",()->{
         StatementContextImpl context = StatementContextImpl.create();

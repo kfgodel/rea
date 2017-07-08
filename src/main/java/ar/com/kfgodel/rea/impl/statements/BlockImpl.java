@@ -4,6 +4,7 @@ import ar.com.kfgodel.nary.api.Nary;
 import ar.com.kfgodel.rea.api.statements.Block;
 import ar.com.kfgodel.rea.api.statements.Statement;
 import ar.com.kfgodel.rea.api.statements.StatementContext;
+import ar.com.kfgodel.rea.impl.variables.ReturnStatementImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,9 @@ public class BlockImpl implements Block {
   public void executeOn(StatementContext context) {
     for (Statement statement : statements) {
       statement.executeOn(context);
+      if(context.binding().hasValueFor(ReturnStatementImpl.RETURN_PSEUDO_VARIABLE)){
+        break;
+      }
     }
   }
 
