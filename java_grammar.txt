@@ -1,0 +1,26 @@
+https://docs.oracle.com/javase/specs/jls/se8/html/jls-19.html
+
+Block:
+  { [BlockStatements] }
+
+BlockStatements:
+  BlockStatement {BlockStatement}
+
+BlockStatement:
+  LocalVariableDeclarationStatement
+  ClassDeclaration
+  Statement
+
+LocalVariableDeclarationStatement:
+  LocalVariableDeclaration ;
+
+LocalVariableDeclaration:
+  {VariableModifier} UnannType VariableDeclaratorList
+
+Statement:
+  StatementWithoutTrailingSubstatement
+  LabeledStatement
+  IfThenStatement
+  IfThenElseStatement
+  WhileStatement
+  ForStatement

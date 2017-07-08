@@ -1,6 +1,6 @@
-package ar.com.kfgodel.rea.impl;
+package ar.com.kfgodel.rea.impl.bindings;
 
-import ar.com.kfgodel.rea.api.NameBinding;
+import ar.com.kfgodel.rea.api.bindings.NameBinding;
 import ar.com.kfgodel.rea.api.exceptions.CannotFindSymbolException;
 
 import java.util.HashMap;

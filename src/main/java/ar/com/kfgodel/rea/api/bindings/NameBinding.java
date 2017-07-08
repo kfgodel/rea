@@ -1,4 +1,4 @@
-package ar.com.kfgodel.rea.api;
+package ar.com.kfgodel.rea.api.bindings;
 
 /**
  * This type represents the set of values that a set of names are binded to in a given scope

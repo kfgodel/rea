@@ -3,7 +3,7 @@ package ar.com.kfgodel.rea;
 import ar.com.dgarcia.javaspec.api.JavaSpec;
 import ar.com.dgarcia.javaspec.api.JavaSpecRunner;
 import ar.com.kfgodel.rea.api.exceptions.CannotFindSymbolException;
-import ar.com.kfgodel.rea.impl.NameBindingsImpl;
+import ar.com.kfgodel.rea.impl.bindings.NameBindingsImpl;
 import org.junit.runner.RunWith;
 
 import static org.assertj.core.api.Assertions.assertThat;

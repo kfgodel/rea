@@ -2,7 +2,9 @@ package ar.com.kfgodel.rea;
 
 import ar.com.dgarcia.javaspec.api.contexts.TestContext;
 import ar.com.dgarcia.javaspec.api.variable.Variable;
-import ar.com.kfgodel.rea.api.NameBinding;
+import ar.com.kfgodel.rea.api.bindings.NameBinding;
+import ar.com.kfgodel.rea.api.statements.Statement;
+import ar.com.kfgodel.rea.api.statements.StatementContext;
 
 import java.util.function.Supplier;
 
@@ -20,10 +22,14 @@ public interface ReaTestContext extends TestContext {
     Variable<Integer> index();
     void index(Supplier<Variable<Integer>> definition);
 
-    <T> Variable<T> variable();
-    <T> void variable(Supplier<Variable<T>> definition);
-
     NameBinding nameBinding();
     void nameBinding(Supplier<NameBinding> definition);
+
+    StatementContext stmContext();
+    void stmContext(Supplier<StatementContext> definition);
+
+    Statement statement();
+    void statement(Supplier<Statement> definition);
+
 
 }
