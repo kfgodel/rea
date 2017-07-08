@@ -41,7 +41,7 @@ public class BlockTest extends JavaSpec<ReaTestContext> {
 
           it("executes the added statements when executed", () -> {
             context().block().executeOn(context().stmContext());
-            assertThat(context().stmContext().binding().getValueFor("name1")).isEqualTo("value1");
+            assertThat(context().stmContext().binding().<String>getValueFor("name1")).isEqualTo("value1");
           });
         });
 

@@ -27,12 +27,12 @@ public class NameBindingsImpl implements NameBinding{
   }
 
   @Override
-  public Object getValueFor(String name) {
+  public <T> T getValueFor(String name) {
     if(!hasValueFor(name)){
       throw new CannotFindSymbolException("The name["+name+"] is unbound");
     }
     Object value = definitions.get(name);
-    return value;
+    return (T) value;
   }
 
   @Override

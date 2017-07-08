@@ -6,6 +6,7 @@ import ar.com.kfgodel.rea.api.bindings.NameBinding;
 import ar.com.kfgodel.rea.api.statements.Block;
 import ar.com.kfgodel.rea.api.statements.Statement;
 import ar.com.kfgodel.rea.api.statements.StatementContext;
+import ar.com.kfgodel.rea.api.variables.LocalVariableDeclarationStatement;
 
 import java.util.function.Supplier;
 
@@ -34,5 +35,8 @@ public interface ReaTestContext extends TestContext {
 
   Block block();
   void block(Supplier<Block> definition);
+
+  LocalVariableDeclarationStatement localDeclaration();
+  void localDeclaration(Supplier<LocalVariableDeclarationStatement> definition);
 
 }

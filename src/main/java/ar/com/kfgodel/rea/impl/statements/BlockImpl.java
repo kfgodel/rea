@@ -16,6 +16,14 @@ public class BlockImpl implements Block {
 
   private List<Statement> statements;
 
+  public static BlockImpl create(Statement... statements) {
+    BlockImpl bloque = create();
+    Nary.create(statements)
+      .forEach(bloque::add);
+    return bloque;
+  }
+
+
   public static BlockImpl create() {
     BlockImpl block = new BlockImpl();
     block.statements = new ArrayList<>();

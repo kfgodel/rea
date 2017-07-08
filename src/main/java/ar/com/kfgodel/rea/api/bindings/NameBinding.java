@@ -20,7 +20,7 @@ public interface NameBinding {
    * @param name The name to which the value was previously bound
    * @return The value of the
    */
-  Object getValueFor(String name);
+  <T> T getValueFor(String name);
 
   /**
    * Answers if this binding has a value bound to the given name

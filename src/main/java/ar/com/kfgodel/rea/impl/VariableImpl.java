@@ -20,9 +20,14 @@ public class VariableImpl<T> implements Variable<T> {
     return value;
   }
 
-  public static VariableImpl create(){
-      VariableImpl variable = new VariableImpl();
-      return variable;
+  public static <T> VariableImpl<T> create(T valorInicial) {
+    VariableImpl<T> variable = new VariableImpl<>();
+    variable.value = valorInicial;
+    return variable;
+  }
+
+  public static <T> VariableImpl<T> create() {
+    return create(null);
   }
 
 }

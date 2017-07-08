@@ -31,7 +31,7 @@ public class StatementTest extends JavaSpec<ReaTestContext> {
         it("can be executed",()->{
           context().statement().executeOn(context().stmContext());
 
-          assertThat(context().stmContext().binding().getValueFor("name1")).isEqualTo(1);
+          assertThat(context().stmContext().binding().<Integer>getValueFor("name1")).isEqualTo(1);
         });
 
         it("shares state with other statements through the context",()->{
@@ -43,7 +43,7 @@ public class StatementTest extends JavaSpec<ReaTestContext> {
 
           statements.forEach(stm -> stm.executeOn(context().stmContext()));
 
-          assertThat(context().stmContext().binding().getValueFor("result")).isEqualTo(3);
+          assertThat(context().stmContext().binding().<Integer>getValueFor("result")).isEqualTo(3);
         });
 
         it("can ignore the context to generate side effect",()->{
